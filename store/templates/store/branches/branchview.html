@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <title>Update Student</title>
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+  
+<style>
+    body {
+        background: #f2f2f2;
+        font-family: 'Roboto', sans-serif;
+        color: #333; /* change text color to black */
+      }
+      
+      .login-key {
+        /* remove gradient and use solid black color */
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        background-color: #000;
+        -webkit-text-fill-color: #000;
+      }
+      
+      .login-title {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #000; /* change title color to black */
+      }
+      
+      input[type=text],
+      input[type=number] {
+        background-color: #fff;
+        border: none;
+        border-bottom: 2px solid #000; /* change border color to black */
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        color: #333;
+      }
+      
+      .form-control-label {
+        font-size: 10px;
+        color: #6C6C6C;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: #000; /* change label color to black */
+      }
+      
+      .btn-outline-primary {
+        border-color: #000; /* change border color to black */
+        color: #000; /* change button color to black */
+        border-radius: 0px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+      
+      .btn-outline-primary:hover {
+        background-color: #000; /* change hover background color to black */
+        right: 0px;
+      }
+      
+      .login-text {
+        text-align: left;
+        padding-left: 0px;
+        color: #A2A4A4;
+        color: #000; /* change text color to black */
+      }
+      
+</style>
+
+
+
+  
+  
+</head>
+
+<body translate="no">
+  <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+
+                <div class="col-lg-12 login-title">
+                    Update Student
+                </div>
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form action="" method="POST">
+							{% csrf_token %}
+
+              <div class="card-body group-image">
+                <img name="student_image"  src="{{ student_image }}" alt="group image" style="width: 150px; height: 150px;">
+                <button type="button" class="btn btn-outline-secondary" onclick="openFileInput()">Edit Image</button>
+              </div>
+            
+            
+
+                            <div class="form-group">
+                                <label class="form-control-label" >Name</label>
+                                <input type="text" name="name" value="{{ name }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" >Reg.No.</label>
+                                <input type="text" name="Reg" value="{{  Reg }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" >gender</label>
+                                <input type="text" name="gender" value="{{ gender }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" >address</label>
+                                <input type="text" name="address" value="{{ address }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" >DOB</label>
+                              <input type="date" name="dob" value="{{ dob|date:'Y-m-d' }}" class="form-control">
+
+                          </div>
+                          
+                            <div class="form-group">
+                                <label class="form-control-label" >Mobile</label>
+                                <input type="text" name="mobile" value="{{ mobile }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" >Email</label>
+                                <input type="text" name="email" value="{{ email }}" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label" >status</label>
+                                <input type="text" name="status" value="{{ status }}" class="form-control">
+                            </div>
+
+                            </div>
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                      <div class="col-sm-6 text-center">
+                                        <button type="submit" class="btn btn-outline-primary">Update</button>
+                                      </div>
+                                      <div class="col-sm-6  text-center">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="window.history.back();">Cancel</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                      
+
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
+  
+  
+  
+  
+</body>
+<script>
+    function openFileInput() {
+      // Create a file input element
+      var input = document.createElement("input");
+      input.type = "file";
+      input.accept = "image/*"; // Only allow image files to be selected
+      
+      // Add a change event listener to the file input element
+      input.addEventListener("change", function() {
+        // Get the selected file
+        var file = this.files[0];
+        
+        // Create a FileReader object to read the selected file
+        var reader = new FileReader();
+        
+        // Add a load event listener to the FileReader object
+        reader.addEventListener("load", function() {
+          // Set the preview image src attribute to the data URL of the selected file
+          document.querySelector(".group-image img").src = reader.result;
+        });
+        
+        // Read the selected file as a data URL
+        reader.readAsDataURL(file);
+      });
+      
+      // Trigger a click event on the file input element to open the file input dialog box
+      input.click();
+    }
+  
+  
+  </script>
+  
+</html>
